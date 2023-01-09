@@ -6,11 +6,10 @@ class Solution
         if(s == null || s.length() == 0) return "";
         for(int i = 0; i < s.length(); i++)
         {
-            String tmp = helper(s, i, i);
-            if(tmp.length() > result.length()) result = tmp;
-            tmp = helper(s, i, i+1);
-            if(tmp.length() > result.length())
-                result = tmp;
+            String oddlength = helper(s, i, i);
+            String evenlength = helper(s, i, i+1);
+            String temp = oddlength.length() > evenlength.length() ? oddlength : evenlength;
+            result = result.length() > temp.length() ? result : temp;
         }
         return result;
     }
