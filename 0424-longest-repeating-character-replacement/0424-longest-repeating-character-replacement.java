@@ -9,7 +9,7 @@ class Solution
             arr[s.charAt(j) - 'A']++;
             max = Math.max(max, arr[s.charAt(j) - 'A']);
             if (j - i + 1 - max > k) arr[s.charAt(i++) - 'A']--;
-            ans = Math.max(ans, j - i + 1);
+            ans = j - i + 1;
         }
         return ans;
     }
