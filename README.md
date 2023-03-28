@@ -1,7 +1,7 @@
 # Solved-Leetcode-Problems
 Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
 # 💫 About Me:
-\Hi Everyone, I can be described as boisterous, exuberant, and unorthodox. I respond best to competition. I love solving complex puzzles. I developed an ideology of never going back on my word. I believe I can accomplish any goal with enough hard work and perseverance.
+Hi Everyone, I can be described as boisterous, exuberant, and unorthodox. I respond best to competition. I love solving complex puzzles. I developed an ideology of never going back on my word. I believe I can accomplish any goal with enough hard work and perseverance.
 
 
 ## 🌐 Socials:
