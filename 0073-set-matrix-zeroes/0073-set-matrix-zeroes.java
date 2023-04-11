@@ -23,3 +23,6 @@ class Solution {
         }
     }
 }
+
+//Time complexity: O(M x N) where M and N are the row and column of the matrix.
+//Space complexity: O(M + N) 
