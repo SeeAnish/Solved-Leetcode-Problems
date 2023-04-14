@@ -12,10 +12,7 @@ class Solution
         }
         int left = pivot;
         int right = nums.length -1;
-        while(left < right)
-        {
-            swap(nums, left++, right--);
-        }
+        while(left < right) swap(nums, left++, right--);
     }
     private void swap(int[] nums, int i, int j)
     {
@@ -24,5 +21,5 @@ class Solution
         nums[j] = temp;
     }
 }
-//Time complexity:
-//Space complexity:
+//Time complexity: O(n)
+//Space complexity: O(1)
