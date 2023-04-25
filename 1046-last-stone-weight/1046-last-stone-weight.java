@@ -6,10 +6,10 @@ class Solution
         for (int i : stones) pathar.add(i);
         while (pathar.size() != 1) 
         {
-            int stone1 = pathar.poll();
-            int stone2 = pathar.poll();
+            int stone1 = pathar.remove();
+            int stone2 = pathar.remove();
             pathar.add(Math.abs(stone1 - stone2));
         }
-        return pathar.poll();    
+        return pathar.remove();    
     }
 }
