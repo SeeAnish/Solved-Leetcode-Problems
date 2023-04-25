@@ -13,3 +13,6 @@ class Solution
         return maxheap.poll();     
     }
 }
+
+//Time complexity: O(Nlog N)
+// Space complexity: O(N)
