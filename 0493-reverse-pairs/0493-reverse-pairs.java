@@ -1,42 +1,38 @@
-public class Solution 
+class Solution 
 {
-    public int reversePairs(int[] A)
-    {    
-        return invCount(A , 0, A.length - 1);
-    }
-    public int invCount(int[] A, int left, int right)
+    public int reversePairs(int[] nums) 
     {
-        if(left == right) return 0;
-        int mid = (left + right) / 2;
-        int a = invCount(A , left , mid);
-        int b = invCount(A , mid + 1, right);
-        int aWithB = mergeSort(A , left , mid, right);
-        return a + b + aWithB;
+		if(nums == null || nums.length < 2) return 0;
+        return mergesort(nums, 0, nums.length-1);
     }
-    public int mergeSort(int[] A, int left, int mid, int right)
+	private int mergesort(int[] nums, int low, int high)
     {
-        int count = 0, i = left, j = mid+1, k = 0;
-        int[] C = new int[right - left + 1];
-        while(i <= mid && j <= right)
+		if (low >= high) return 0;
+		int mid = low + (high - low) / 2;
+		int count = mergesort(nums, low, mid) + mergesort(nums, mid+1, high);
+		for (int i = low, j = mid+1; i <= mid && j <= high;)
         {
-            if((long) A[i] > (long) 2*A[j])
+			if (nums[i] > (long) nums[j] * 2)
             {
-                count += mid-i+1;
+                count += mid - i + 1;
                 j++;
             }
             else i++;
-        }
-        i = left;
-        j = mid+1;
-        while(i <= mid && j <= right)
+		}
+		merge(nums, low, high);
+		return count;
+	}
+	private void merge(int[] nums, int low, int high)
+    {
+		int mid = low + (high - low) / 2;
+		int[] arr = new int[high - low + 1];	
+		int i = low, j = mid + 1, k = 0;
+		while (k < arr.length)
         {
-            if(A[i] <= A[j]) C[k++] = A[i++];
-            else C[k++] = A[j++];
-        }
-        while(i <= mid) C[k++] = A[i++];
-        while(j <= right) C[k++] = A[j++];
-        k = 0;
-        for(int z = left; z <= right; z++, k++) A[z] = C[k];
-        return count;
-    }
-}   
+			int num1 = i > mid ? Integer.MAX_VALUE : nums[i];
+			int num2 = j > high ? Integer.MAX_VALUE : nums[j];	
+			arr[k++] = num1 <= num2 ? nums[i++] : nums[j++];
+		}
+		for (int p = 0; p < arr.length; p++) nums[p+low] = arr[p];
+	}
+}
