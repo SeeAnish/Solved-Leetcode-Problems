@@ -8,8 +8,7 @@ class Solution
         {
             if(i == 0 || nums[i] != nums[i-1])
             {
-                int j = i+1;
-                int k = nums.length-1;
+                int j = i+1, k = nums.length-1;
                 while(j < k)
                 {
                     int sum = nums[i] + nums[j] + nums[k];
@@ -27,3 +26,5 @@ class Solution
         return result;
     }
 }
+//Time complexity:O(N^2)
+//Space Complexity: O(N)
