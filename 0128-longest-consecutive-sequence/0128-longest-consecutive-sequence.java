@@ -3,9 +3,9 @@ class Solution
     public int longestConsecutive(int[] nums) 
     {
         int longs = 0;
-        Set set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         for(int i: nums) set.add(i);
-        for(int i: nums)
+        for(int i: set)
         {
             if(!set.contains(i-1))
             {
@@ -21,3 +21,5 @@ class Solution
         return longs;
     }
 }
+//Time Complexity: O(N)
+//Space Complexity: O(N)
