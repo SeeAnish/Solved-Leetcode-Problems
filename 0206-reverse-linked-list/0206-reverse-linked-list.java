@@ -12,8 +12,8 @@ class Solution
 {
     public ListNode reverseList(ListNode head) 
     {
-        ListNode current = head;
         ListNode previous = null;
+        ListNode current = head;
         while(current != null)
         {
             ListNode temp = current.next;
@@ -24,3 +24,5 @@ class Solution
         return previous;
     }
 }
+//Time Complexity: O(N)
+//Space Complexity: O(1)
