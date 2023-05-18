@@ -9,10 +9,12 @@ class Solution
             if(!set.contains(s.charAt(j)))
             {
                 set.add(s.charAt(j++));
-                max = Math.max(set.size(), max);
+                max = Math.max(max, set.size());
             }
             else set.remove(s.charAt(i++));
         }
         return max;
     }
 }
+//Time complexity: O(N)
+//Space Complexity: O(1)
