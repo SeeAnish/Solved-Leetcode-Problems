@@ -23,3 +23,5 @@ public class Solution
         return hare;
     }
 }
+//Time Complexity: O(n)
+//Space Complexity: O(1)
