@@ -24,3 +24,5 @@ public class Solution
         return false;
     }
 }
+//Time complexity: O(N)
+//Space complexity: O(1)
