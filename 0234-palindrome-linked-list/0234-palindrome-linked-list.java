@@ -12,36 +12,18 @@ class Solution
 {
     public boolean isPalindrome(ListNode head) 
     {
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast != null && fast.next != null)
+        List vals = new ArrayList<>();
+        List rvals = new ArrayList<>();
+        int i = 0;
+        while(head != null)
         {
-            slow = slow.next;
-            fast = fast.next.next;
+            vals.add(head.val);
+            head = head.next;
         }
-        slow = reverse(slow);
-        fast = head;
-        while(slow != null)
-        {
-            if(slow.val != fast.val) return false;
-            slow = slow.next;
-            fast = fast.next;
-        }
+        for(int j = vals.size() -1; j >= 0; j--) rvals.add(vals.get(j));
+        for(int j = vals.size() -1; j >= 0; j--) if(vals.get(j) != rvals.get(j)) return false;
         return true;
     }
-    private ListNode reverse(ListNode head)
-    {
-        ListNode pre = null;
-        ListNode curr = head;
-        while(curr != null)
-        {
-            ListNode temp = curr.next;
-            curr.next = pre;
-            pre = curr;
-            curr = temp;
-        }
-        return pre;
-    }
 }
-//Time Complexity: O(N)
-// Space Complexity: O(1)
+// Time Complexity: O(N)
+//Space Complexity: O(N)
