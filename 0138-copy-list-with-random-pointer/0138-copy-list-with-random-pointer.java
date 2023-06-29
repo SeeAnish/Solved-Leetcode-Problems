@@ -15,15 +15,17 @@ class Node {
 
 class Solution 
 {
-    Map<Node, Node> visitedHash = new HashMap<>();
+    Map<Node, Node> vmap = new HashMap<>();
     public Node copyRandomList(Node head) 
     {
-    if (head == null) return null;
-    if (this.visitedHash.containsKey(head)) return this.visitedHash.get(head);
-    Node node = new Node(head.val, null, null);
-    this.visitedHash.put(head, node);
-    node.next = copyRandomList(head.next);
-    node.random = copyRandomList(head.random);
-    return node;
-  }
+        if(head == null) return null;
+        if(vmap.containsKey(head)) return vmap.get(head);
+        Node dummy = new Node(head.val, null, null);
+        vmap.put(head, dummy);
+        dummy.next = copyRandomList(head.next);
+        dummy.random = copyRandomList(head.random);
+        return dummy;
+    }
 }
+//Time Complexity: O(N) where N is the number of nodes in the linked list.
+//Space Complexity: O(N)
