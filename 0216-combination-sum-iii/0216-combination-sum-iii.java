@@ -12,20 +12,17 @@ class Solution
     private void backtrack(int start, int sum)
     {
         if(curr.size() > k) return;
-        else if(curr.size() == k && sum == 0)
+        if(curr.size() == k && sum == 0)
         {
             result.add(new ArrayList<>(curr));
         }
-        else 
+        for(int i = start; i <= 9; i++)
         {
-            for(int i = start; i <= 9; i++)
+            if(sum - i >= 0)
             {
-                if(sum - i >= 0)
-                {
-                    curr.add(i);
-                    backtrack(i+1, sum - i);
-                    curr.remove(curr.size() - 1);
-                }
+                curr.add(i);
+                backtrack(i+1, sum - i);
+                curr.remove(curr.size() - 1);
             }
         }
     }
