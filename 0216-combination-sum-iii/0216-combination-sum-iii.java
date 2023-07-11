@@ -15,7 +15,6 @@ class Solution
         else if(curr.size() == k && sum == 0)
         {
             result.add(new ArrayList<>(curr));
-            return;
         }
         else 
         {
