@@ -12,18 +12,17 @@ class Solution
     private void backtrack(int start, int sum)
     {
         if(curr.size() > k) return;
-        if(curr.size() == k && sum == 0)
+        else if(curr.size() == k && sum == 0) result.add(new ArrayList<>(curr));
+        else
         {
-            result.add(new ArrayList<>(curr));
-            return;
-        }
-        for(int i = start; i <= 9; i++)
-        {
-            if(sum - i >= 0)
+            for(int i = start; i <= 9; i++)
             {
-                curr.add(i);
-                backtrack(i+1, sum - i);
-                curr.remove(curr.size() - 1);
+                if(sum - i >= 0)
+                {
+                    curr.add(i);
+                    backtrack(i+1, sum - i);
+                    curr.remove(curr.size() - 1);
+                }
             }
         }
     }
