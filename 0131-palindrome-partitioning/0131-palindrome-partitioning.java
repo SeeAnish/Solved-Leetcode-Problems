@@ -1,36 +1,29 @@
 class Solution 
 {
     List<List<String>> result = new ArrayList<>();
+    List<String> curr = new ArrayList<>();
     public List<List<String>> partition(String s) 
     {
-        backTrack(0, s, new ArrayList());
+        backTrack(0, s);
         return result;
     }
-    public void backTrack(int start, String s, List<String> curr)
+    public void backTrack(int start, String s)
     {
-        if(start == s.length())
-        {
-            result.add(new ArrayList<>(curr));
-            return;
-        }
+        if(start == s.length()) result.add(new ArrayList<>(curr));
         for(int i = start; i < s.length(); i++)
         {
             if(isPalindrome(start, i, s))
             {
                 curr.add(s.substring(start, i+1));
-                backTrack(i+1, s, curr);
+                backTrack(i+1, s);
                 curr.remove(curr.size() - 1);
             }
         }
     }
-    public boolean isPalindrome(int index, int last, String s)
+    public boolean isPalindrome(int left, int right, String s)
     {
-        while(index < last)
-        {
-            if(s.charAt(index) != s.charAt(last)) return false;
-            index++;
-            last--;
-        }
+        while(left <= right)
+            if(s.charAt(left++) != s.charAt(right--)) return false;
         return true;
     }
 }
