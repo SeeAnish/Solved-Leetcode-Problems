@@ -2,15 +2,17 @@ class Solution
 {
     public boolean searchMatrix(int[][] matrix, int target) 
     {
-        int i = 0, j = matrix[0].length - 1;
-        while(i < matrix.length && j >= 0)
+        int row = matrix.length, col = matrix[0].length, left = 0, right = row * col - 1;
+        while(left <= right)
         {
-            if(matrix[i][j] == target) return true;
-            else if(matrix[i][j] < target) i++;
-            else j--;
+            int mid = left + (right - left)/2, 
+            midval = matrix[mid/col][mid%col];
+            if(midval == target) return true;
+            else if(midval < target) left = mid+1;
+            else right = mid - 1;
         }
         return false;
     }
 }
-//Time complexity: O(m+n);
+//Time complexity: O(log(m*n));
 //Space Complexity: O(1);
