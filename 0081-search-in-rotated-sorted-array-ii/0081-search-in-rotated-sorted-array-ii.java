@@ -8,7 +8,7 @@ class Solution
         {
             int mid = left + (right- left)/2;
             if(nums[mid] == target) return true;
-            if(nums[left] == nums[mid]) left++;
+            else if(nums[left] == nums[mid]) left++;
             else if(nums[left] <= nums[mid])
             {
                 if(target < nums[left] || target > nums[mid]) left = mid + 1;
@@ -23,3 +23,5 @@ class Solution
         return false;
     }
 }
+//Time Complexity: O(Log n);
+//Space Complexity: O(1);
