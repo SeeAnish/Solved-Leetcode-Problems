@@ -3,6 +3,7 @@ class Solution
     public int coinChange(int[] coins, int amount) 
     {
         if(coins.length == 0 || coins == null) return -1;
+        Arrays.sort(coins);
         int[] dp = new int[amount+1];
         Arrays.fill(dp, amount+1);
         dp[0] = 0;
