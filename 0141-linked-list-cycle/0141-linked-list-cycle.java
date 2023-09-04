@@ -17,12 +17,10 @@ public class Solution
         ListNode fast = head;
         while(fast != null && fast.next != null)
         {
-            slow = slow.next;
             fast = fast.next.next;
-            if(slow == fast) return true;
+            slow = slow.next;
+            if(fast == slow) return true;
         }
         return false;
     }
 }
-//Time complexity: O(N)
-//Space complexity: O(1)
