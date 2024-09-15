@@ -2,19 +2,15 @@ class Solution
 {
     public int[] twoSum(int[] nums, int target) 
     {
-        int[] result = new int[2];
         Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++)
         {
-            int remainder = target - nums[i];
-            if(map.containsKey(remainder))
-            {
-                result[0] = map.get(remainder);
-                result[1] = i;
-                return result;
-            }
-            else map.put(nums[i], i);
+            int remain = target - nums[i];
+            if(map.containsKey(remain)) return new int[] {i, map.get(remain)};
+            map.put(nums[i], i);
         }
-        return new int[]{-1,-1};
+        return new int[] {-1, -1};
     }
 }
+//Time Complexity: O(N)
+//Space Complexity: O(N)
